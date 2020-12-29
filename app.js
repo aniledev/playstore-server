@@ -47,6 +47,13 @@ app.get("/apps", (req, res) => {
     app.Genres.toLowerCase().includes(genres.toLowerCase())
   );
 
+  // use a bubble sort after the books are filtered
+  if (sort) {
+    results.sort((a, b) => {
+      return a[sort] > b[sort] ? 1 : a[sort] < b[sort] ? -1 : 0;
+    });
+  }
+
   res.json(results);
 });
 
