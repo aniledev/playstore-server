@@ -29,7 +29,7 @@ app.get("/apps", (req, res) => {
   // if there is a genre, it must also be validated
   if (genres) {
     if (
-      !["Action", "Puzzle", "Strategy", "Casual", "Arcade", "Card"].includes(
+      !["action", "puzzle", "strategy", "casual", "arcade", "card"].includes(
         genres
       )
     ) {
@@ -47,7 +47,7 @@ app.get("/apps", (req, res) => {
     app.Genres.toLowerCase().includes(genres.toLowerCase())
   );
 
-  res.json();
+  res.json(results);
 });
 
 // listen for the app on the port 8000
