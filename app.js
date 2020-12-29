@@ -41,6 +41,13 @@ app.get("/apps", (req, res) => {
         );
     }
   }
+
+  // use the filter method to return an array of app titles that include the genre; lowercase the app list and the genre for convenience
+  let results = playstore.filter((app) =>
+    app.Genres.toLowerCase().includes(genres.toLowerCase())
+  );
+
+  res.json();
 });
 
 // listen for the app on the port 8000
