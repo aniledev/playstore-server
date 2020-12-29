@@ -1,3 +1,5 @@
+// this file contains the array data for apps on the playstore with specific information
+
 module.exports = [
   {
     App: "ROBLOX",
