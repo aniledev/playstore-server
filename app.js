@@ -15,8 +15,16 @@ app.use(cors());
 
 //create GET request using express app object, path and handler
 app.get("/apps", (req, res) => {
-  // object destructing to access the req.query parameters and set defaults
+  // object destructing to access the req.query parameters and set defaults; the parameters are optional
   const { sort, genres = "" } = req.query;
+
+  // if there is a sort value then it must be validated
+  if (sort) {
+    if (!["rating", "app"].includes(sort)) {
+      // if sort is not rating or app then return a status of 400
+      return res.status(400).send("Sort must be one of rating or app");
+    }
+  }
 });
 
 // listen for the app on the port 8000
