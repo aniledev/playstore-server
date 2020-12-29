@@ -44,3 +44,7 @@ app.get("/apps", (req, res) => {
 });
 
 // listen for the app on the port 8000
+
+app.listen(8000, () => {
+  console.log("Server started on PORT 8000");
+});
